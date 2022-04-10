@@ -28,7 +28,7 @@ void Terminate_Process_SYS2() {
     scheduler();
 }
 
-void Passeren_SYS3() {
+void Passeren_SYS3(int* semAddr) {
     if (/*valore del semaforo non e' bloccante*/){
         *semAddr = ;//valore bloccante
         insertBlocked(semAddr, currentProcess); //Current Process is blocked on the ASL
@@ -38,7 +38,7 @@ void Passeren_SYS3() {
     }
 }
 
-void Verhogen_SYS4() {
+void Verhogen_SYS4(int* semAddr) {
     *semAddr = ;//valore non bloccante
     pcb_PTR runningProcess = removeBlocked(semAddr);    //change blocked process to running
     if(runningProcess != NULL){ //if I actually have freed a process
